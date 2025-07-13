@@ -1,0 +1,2140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>YummyEats</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <style>
+          footer {
+            background-color: #eeeeee; 
+          }
+
+          .header {
+            background-color: #379956; 
+          }
+
+          .htext {
+            background-color: #e4f1fe; 
+          }
+
+          nav {
+            background-color: #234c63; 
+            color: white; 
+          }
+          .ftype {
+            height: 1000px;
+            background-color: #379956;
+          }
+          .ctype {
+            height: 1000px;
+            background-color: #f95959;
+          }
+          .htype {
+            height: 1000px;
+            background-color: #5585b5;
+          }
+            .vtype {
+            height: 1000px;
+            background-color: #53a8b6;
+          }
+          .navbar-custom .nav-link {
+            color: white;
+          }
+          .navbar-custom .nav-link.active, .navbar-custom .nav-link:hover {
+            color: orange;
+            text-decoration: underline;
+          }
+          .content {
+            color: white;
+          }
+          .book-container {
+            perspective: 800px; 
+            max-width: 600px;
+            margin: auto;
+            height: 300px; 
+        }
+
+        .book {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transform-origin: 100% 50%;
+            animation: flip 6s infinite alternate;
+        }
+
+        .page {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+        }
+
+        .page img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .page img:nth-child(2) {
+            display: none;
+        }
+
+        @keyframes flip {
+            0%, 100% {
+                transform: rotateY(0deg);
+            }
+            50% {
+                transform: rotateY(-90deg);
+            }
+            51%, 100% {
+                transform: rotateY(-180deg);
+            }
+        }
+          .modal-header {
+            background-color: rgb(151, 239, 83);
+            border-bottom: 1px solid subtle-green;
+        }
+            .modal-title {
+                color: white;
+                text-decoration: underline;
+            }
+
+            .modal-body {
+                background-color: green;
+                color: white;
+            }
+
+            .modal-content {
+                border: 1px solid green;
+            }
+
+            .btn-orange {
+                background-color: orange;
+                color: white;
+                border: 1px solid orange;
+            }
+
+            .btn-orange:hover {
+                background-color: white;
+                color: orange;
+            }
+            .ptext{
+                height:50px;
+                
+            }
+            .card-body {
+                margin-bottom: 20px;
+            }
+            .dropdown:hover .dropdown-menu {
+                    display: block;
+                }
+            .dropdown-menu {
+                display: none;
+            }
+            .card-img-top {
+                transition: transform 0.5s;
+            }
+
+            .card-img-top:hover {
+                transform: scale(1.1);
+            }
+              .food-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            }
+
+            .food-section h3 {
+                font-size: 24px;
+                margin-bottom: 10px;
+            }
+
+            .food-section p {
+                font-size: 18px;
+                line-height: 1.5;
+            }
+
+            .food-section ul {
+                margin-top: 10px;
+                font-size: 16px;
+            }
+
+            .food-section img {
+                max-width: 100%;
+                height: auto;
+                border-radius: 10px;
+                height: 200px;
+                object-fit: cover;
+            }
+            
+            .tip-card:hover {
+                transform: scale(1.05);
+            }
+
+            .tip-card {
+                background-color: #f8f9fa; 
+                transition: background-color 0.3s;
+                transition: transform 0.3s;
+            }
+            .custom-section {
+            text-align: right;
+            background-color: #f0f0f0; 
+            padding: 20px; 
+        }
+
+        .custom-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.custom-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; 
+}
+
+.custom-img-container {
+    overflow: hidden;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    transition: border-radius 0.3s ease-in-out;
+    margin-right: 100px; 
+}
+
+.custom-row:hover .custom-img-container {
+    border-radius: 50%;
+}
+
+.custom-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.custom-content {
+    text-align: left;
+    max-width: 800px;
+    margin-left: 15px;
+}
+
+.custom-content h2 {
+    color: #333;
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+.custom-content p {
+    color: #555;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+        .btn-download {
+            background-color: #007bff; 
+            color: #fff;
+            padding: 10px 20px; 
+            font-size: 14px; 
+            text-decoration: none;
+            border-radius: 5px; 
+            display: inline-block; 
+            transition: background-color 0.3s ease-in-out;
+        }
+        .btn-download:hover {
+            background-color: #0056b3; 
+        }  
+        </style>
+
+</head>
+<body>
+    <div id="headdiv" class="container-fluid p-1 header text-white text-center">
+        <h1>YummyEats</h1>
+        <p>A Recipe Sharing App</p>
+        <a href="#headdiv"><img class="img img-thumbnail float-start mt-2 mb-3 mx-2 my-3" style="position: fixed; z-index: 9; top:0; left:0; width: 98px; height: 98px;" src="images/x1.jpeg"> </a>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-md bg-subtle navbar-light navbar-custom">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink">
+                        Cuisine
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item" href="#indfood">Indian Food</a></li>
+                        <li><a class="dropdown-item" href="#contfood">Continental Food</a></li>
+                        <li><a class="dropdown-item" href="#heatfreefood">Heat Free Food</a></li>
+                        <li><a class="dropdown-item" href="#vegan-food">Vegan Food</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#shareRecipeModal">Share Recipe</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+        <!-- Share Recipe Modal -->
+        <div class="modal fade" id="shareRecipeModal" tabindex="-1" aria-labelledby="shareRecipeModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-orange" id="shareRecipeModalLabel">Share Recipe</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="recipeName" class="form-label">Recipe Name</label>
+                                <input type="text" class="form-control" id="recipeName" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="ingredients" class="form-label">Ingredients</label>
+                                <textarea class="form-control" id="ingredients" rows="3" required></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="instructions" class="form-label">Instructions</label>
+                                <textarea class="form-control" id="instructions" rows="3" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-orange">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Login Modal -->
+        <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-orange" id="loginModalLabel">Login</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="username" class="form-label">Username</label>
+                                <input type="text" class="form-control" id="username" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="password" required>
+                            </div>
+                            <button type="submit" class="btn btn-orange">Login</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+             <div class="container p-2 mt-1 htext text-dark rounded shadow">
+                <p>Do you submit your blog recipes to food sharing sites? These recipe aggregator sites help recipe creators by amplifying their content to new audiences and driving traffic back to their blogs.
+
+                    As a recipe creator, you can submit your recipes to these food sharing sites, and then these sites will display and feature those recipes. These food sharing sites are all a little different, but submitting your content to them can be part of an effective traffic-building strategy, especially when you’re just starting out.
+                    
+                    Let’s dive into some of our favorite food sharing sites!</p>
+             </div>
+
+             <!-- The slideshow/carousel -->
+           <div id="demo" class="carousel slide" data-bs-ride="carousel" style="width: 100vw; height: 500px; overflow: hidden;">
+            <!-- Indicators/dots -->
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="3"></button>
+            </div>
+
+            <!-- The slideshow/carousel -->
+            <div class="container carousel-inner mt-2" style="height: 100%; width: 100%; display: flex;">
+                <div class="carousel-item active" style="width: 100%;">
+                    <img src="images/y6.jpeg" alt="Indian" class="d-block w-100">
+                </div>
+                <div class="carousel-item" style="width: 100%;">
+                    <img src="images/y7.jpeg" alt="Continental" class="d-block w-100">
+                </div>
+                <div class="carousel-item" style="width: 100%;">
+                    <img src="images/y8.jpeg" alt="Heat Free" class="d-block w-100">
+                </div>
+                <div class="carousel-item" style="width: 100%;">
+                    <img src="images/w1.jpeg" alt="Vegan Food" class="d-block w-100">
+                </div>
+            </div>
+             <!-- Left and right controls/icons -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev" style="position: absolute; top: 50%; transform: translateY(-50%); left: 0;">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next" style="position: absolute; top: 50%; transform: translateY(-50%); right: 0;">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+            </div>
+
+
+            <div class="container text-center mt-3">
+                <h2 style="font-family: 'Courier New', Courier, monospace; color: #f96d00; font-size: 2.5rem; margin-top: 20px mb-3"> Popular Categories</h2>
+            </div>
+
+            <div class="container">
+                <div class="row mt-2">
+                    <div class="col-md-6 col-lg-3">
+                        <a href="#indfood"> <img class="img img-responsive rounded" src="images/y2.jpeg" alt="Food Image"/></a>
+                        <p class="px-5">Indian Food</p>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <a href="#contfood"> <img class="img img-responsive rounded" src="images/y3.jpeg" alt="Food Image"/></a>
+                        <p class="px-5">Continental Food</p>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <a href="#heatfreefood"> <img class="img img-responsive rounded" src="images/y9.jpeg" alt="Food Image"/></a>
+                        <p class="px-5">Heat Free Food</p>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <a href="#vegan-food"> <img class="img img-responsive rounded" src="images/y5.jpeg" alt="Food Image"/></a>
+                        <p class="px-5">Vegan Food</p>
+                    </div>
+                </div>
+            </div>
+
+        <!-- Indian Food -->
+        <div class="container mt-3 food-section">
+            <div class="row">
+                <!-- Indian Food Details on Left -->
+                <div class="col-md-6">
+                    <h3>Indian Food</h3>
+                    <p>Indian cuisine is known for its diverse flavors and spices. From spicy curries to flavorful rice dishes, Indian food offers a variety of delicious options.</p>
+                    <ul>
+                        <li>Spicy curries</li>
+                        <li>Flavorful rice dishes</li>
+                        <li>Tandoori specialties</li>
+                    </ul>
+                </div>
+                <!-- Indian Food Image on Right -->
+                <div class="col-md-6 d-flex justify-content-end">
+                    <img src="images/y6.jpeg" alt="Indian Food" class="img-fluid rounded">
+                </div>
+            </div>
+        </div>
+        <!-- Continental Food -->
+        <div class="container mt-3 food-section">
+            <div class="row">
+                <!-- Continental Food Image on Left -->
+                <div class="col-md-6">
+                    <img src="images/y3.jpeg" alt="Continental Food" class="img-fluid rounded">
+                </div>
+                <!-- Continental Food Details on Right -->
+                <div class="col-md-6">
+                    <h3>Continental Food</h3>
+                    <p>Continental cuisine includes dishes from European countries like Italy, France, and Spain. It often features rich flavors and creamy sauces.</p>
+                    <ul>
+                        <li>Pasta dishes</li>
+                        <li>Rich sauces</li>
+                        <li>Cheese platters</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Heat Free Food -->
+        <div class="container mt-3 food-section">
+            <div class="row">
+                <!-- Heat Free Food Details on Left -->
+                <div class="col-md-6">
+                    <h3>Heat Free Food</h3>
+                    <p>Heat free recipes are dishes that don't require cooking or baking. These recipes are perfect for hot days when you want a cool and refreshing meal.</p>
+                    <ul>
+                        <li>Salads</li>
+                        <li>Smoothies</li>
+                        <li>Raw desserts</li>
+                    </ul>
+                </div>
+                <!-- Heat Free Food Image on Right -->
+                <div class="col-md-6 d-flex justify-content-end">
+                    <img src="images/y8.jpeg" alt="Heat Free Food" class="img-fluid rounded">
+                </div>
+            </div>
+        </div>
+
+        <!-- Vegan Food -->
+        <div class="container mt-3 food-section">
+            <div class="row">
+                <!-- Vegan Food Image on Left -->
+                <div class="col-md-6">
+                    <img src="images/y5.jpeg" alt="Vegan Food" class="img-fluid rounded">
+                </div>
+                <!-- Vegan Food Details on Right -->
+                <div class="col-md-6">
+                    <h3>Vegan Food</h3>
+                    <p>Vegan cuisine excludes all animal products, including meat, dairy, and eggs. It focuses on plant-based ingredients and can be both nutritious and delicious.</p>
+                    <ul>
+                        <li>Plant-based proteins</li>
+                        <li>Dairy-free desserts</li>
+                        <li>Veggie-packed meals</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid mt-3 mb-3 book-container">
+            <div class="row align-items-center justify-content-center book">
+                <div class="col-auto page">
+                    <img src="images/w1.jpeg" class="img-fluid" alt="Image 1">
+                </div>
+                <div class="col-auto page">
+                    <img src="images/w2.jpeg" class="img-fluid" alt="Image 2">
+                </div>
+            </div>
+        </div>
+
+
+<!-- Indian food -->
+ <div class="container d-block mt-2 ftype" id="indfood">
+        <div class="row gx-md-3 gx-lg-4">
+            <div class="text-center bg-subtle text-white mt-2 mb-3" style="font-size:2.0rem;">
+                Indian food
+            </div>
+            <div class="col-md-4 col-lg-3">
+                <div class="card">
+                    <img class="card-img-top img-fluid" src="images/food1.jpeg" alt="Paneer Tikka">
+                    <div class="card-body">
+                        <h4 class="card-title">Paneer Tikka</h4>
+                        <p class="card-text ptext">Punjabi barbecue food.</p>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#paneerTikkaModal">Recipe</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-3">
+                <div class="card">
+                    <img class="card-img-top img-fluid" src="images/food2.jpeg" alt="Samosa">
+                    <div class="card-body">
+                        <h4 class="card-title">Samosa</h4>
+                        <p class="card-text ptext">Spiced mashed potato-filled pastry.</p>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#samosaModal">Recipe</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-3">
+                <div class="card">
+                    <img class="card-img-top img-fluid" src="images/food3.png" alt="Masala Dosa">
+                    <div class="card-body">
+                        <h4 class="card-title">Masala Dosa</h4>
+                        <p class="card-text">Thin, crispy pancake with spicy potato filling.</p>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#masalaDosaModal">Recipe</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-3">
+                <div class="card">
+                    <img class="card-img-top img-fluid" src="images/food13.jpeg" alt="Baigan Bhartha">
+                    <div class="card-body">
+                        <h4 class="card-title">Baigan Bhartha</h4>
+                        <p class="card-text ptext">Smoky eggplant curry.</p>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#baiganBharthaModal">Recipe</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-3 mt-3">
+                <div class="card mt-2">
+                    <img class="card-img-top img-fluid" src="images/food14.jpeg" alt="Pani Puri">
+                    <div class="card-body">
+                        <h4 class="card-title">Pani Puri</h4>
+                        <p class="card-text ptext">Crunchy street food with tangy flavored water.</p>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#paniPuriModal">Recipe</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-3 mt-3">
+                <div class="card mt-2">
+                    <img class="card-img-top img-fluid" src="images/food15.jpeg" alt="Chole Bhature">
+                    <div class="card-body">
+                        <h4 class="card-title">Chole Bhature</h4>
+                        <p class="card-text ptext">Spicy chickpea curry with fried bread.</p>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#choleBhatureModal">Recipe</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-3 mt-3">
+                <div class="card mt-2">
+                    <img class="card-img-top img-fluid" src="images/food16.jpeg" alt="Gulab Jamun">
+                    <div class="card-body">
+                        <h4 class="card-title">Gulab Jamun</h4>
+                        <p class="card-text ptext">Sweet fried dumplings in sugar syrup.</p>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#gulabJamunModal">Recipe</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-3 mt-3">
+                <div class="card mt-2">
+                    <img class="card-img-top img-fluid" src="images/food17.jpeg" alt="Rajma Chawal">
+                    <div class="card-body">
+                        <h4 class="card-title">Rajma Chawal</h4>
+                        <p class="card-text ptext">Red kidney beans curry with rice.</p>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#rajmaChawalModal">Recipe</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <!-- Continental Food Section -->
+        <div class="container d-block mt-5 ctype" id="contfood">
+            <div class="row gx-md-3 gx-lg-4">
+                <div class="text-center bg-subtle text-white mt-2 mb-5" style="font-size:2.0rem;">
+                    Continental Food
+                </div>
+                <div class="col-md-4 col-lg-3 mb-3">
+                    <div class="card" style="height: 100%;">
+                        <img class="card-img-top" src="images/food4.jpeg" alt="Sushi">
+                        <div class="card-body">
+                            <h4 class="card-title">Sushi</h4>
+                            <p class="card-text">Japanese dish consisting of vinegared rice and various ingredients.</p>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#sushiModal">Recipe</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3 mb-3">
+                    <div class="card" style="height: 100%;">
+                        <img class="card-img-top" src="images/food5.jpeg" alt="Pasta">
+                        <div class="card-body">
+                            <h4 class="card-title">Pasta</h4>
+                            <p class="card-text">Italian dish typically made from durum wheat semolina.</p>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#pastaModal">Recipe</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3 mb-3">
+                    <div class="card" style="height: 100%;">
+                        <img class="card-img-top" src="images/food6.jpeg" alt="Pizza">
+                        <div class="card-body">
+                            <h4 class="card-title">Pizza</h4>
+                            <p class="card-text">Italian dish consisting of a usually round, flattened base of leavened wheat-based dough.</p>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#pizzaModal">Recipe</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3 mb-3">
+                    <div class="card" style="height: 100%;">
+                        <img class="card-img-top" src="images/food18.jpeg" alt="Burger">
+                        <div class="card-body">
+                            <h4 class="card-title">Burger</h4>
+                            <p class="card-text">Sandwich consisting of one or more cooked patties of ground meat.</p>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#burgerModal">Recipe</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3 mt-2 mb-3">
+                    <div class="card" style="height: 100%;">
+                        <img class="card-img-top" src="images/food19.jpeg" alt="Risotto">
+                        <div class="card-body">
+                            <h4 class="card-title">Risotto</h4>
+                            <p class="card-text">Italian rice dish cooked with broth until creamy.</p>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#risottoModal">Recipe</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3 mt-2 mb-3">
+                    <div class="card" style="height: 100%;">
+                        <img class="card-img-top" src="images/food20.jpeg" alt="Croissant">
+                        <div class="card-body">
+                            <h4 class="card-title">Croissant</h4>
+                            <p class="card-text">Buttery, flaky pastry of Austrian origin.</p>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#croissantModal">Recipe</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3 mt-2 mb-3">
+                    <div class="card" style="height: 100%;">
+                        <img class="card-img-top" src="images/food35.jpeg" alt="Cheesecake">
+                        <div class="card-body">
+                            <h4 class="card-title">Cheesecake</h4>
+                            <p class="card-text">Sweet dessert consisting of one or more layers.</p>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cheesecakeModal">Recipe</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3 mt-2 mb-3">
+                    <div class="card" style="height: 100%;">
+                        <img class="card-img-top" src="images/food21.jpeg" alt="Crispy Calamari Rings">
+                        <div class="card-body">
+                            <h4 class="card-title">Crispy Calamari Rings</h4>
+                            <p class="card-text">Deep-fried squid rings coated in a crispy batter.</p>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#calamariModal">Recipe</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Heat Free Food Section -->
+        <div class="container d-block mt-5 htype" id="heatfreefood">
+            <div class="row gx-md-3 gx-lg-4">
+                <div class="text-center bg-subtle text-white mt-2 mb-5" style="font-size:2.2rem;">
+                    Heat Free Food
+                </div>
+                <div class="col-md-4 col-lg-3 mb-3">
+                    <div class="card" style="height: 100%;">
+                        <img class="card-img-top" src="images/food7.jpeg" alt="Salad">
+                        <div class="card-body">
+                            <h4 class="card-title">Salad</h4>
+                            <p class="card-text ptext">A dish consisting of a mixture of small pieces of food, usually vegetables or fruit.</p>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#saladModal">Recipe</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3 mb-3">
+                    <div class="card" style="height: 100%;">
+                        <img class="card-img-top" src="images/food8.jpeg" alt="Smoothie">
+                        <div class="card-body">
+                            <h4 class="card-title">Smoothie</h4>
+                            <p class="card-text ptext">Thick, smooth drink consisting of fruit pureed with milk, yogurt, or ice cream.</p>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#smoothieModal">Recipe</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3 mb-3">
+                    <div class="card" style="height: 100%;">
+                        <img class="card-img-top" src="images/food9.jpeg" alt="Gazpacho">
+                        <div class="card-body">
+                            <h4 class="card-title">Gazpacho</h4>
+                            <p class="card-text ptext">Cold soup made of raw, blended vegetables.</p>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#gazpachoModal">Recipe</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3 mb-3">
+                    <div class="card" style="height: 100%;">
+                        <img class="card-img-top" src="images/food34.jpeg" alt="Chia Seed Pudding">
+                        <div class="card-body">
+                            <h4 class="card-title">Chia Seed Pudding</h4>
+                            <p class="card-text ptext">A delicious and nutritious pudding made with chia seeds soaked in milk.</p>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#chiaSeedPuddingModal">Recipe</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3 mt-2 mb-3">
+                    <div class="card" style="height: 100%;">
+                        <img class="card-img-top" src="images/food33.jpeg" alt="Rocket Salad With Avocado, Blue Cheese And Pecans">
+                        <div class="card-body">
+                            <h4 class="card-title">Rocket Salad With Avocado, Blue Cheese And Pecans</h4>
+                            <p class="card-text ptext">A refreshing salad with rocket leaves, avocado, blue cheese, and pecans.</p>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#rocketSaladModal">Recipe</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3 mt-2 mb-3">
+                    <div class="card" style="height: 100%;">
+                        <img class="card-img-top" src="images/food25.jpeg" alt="Veggie Pad Thai">
+                        <div class="card-body">
+                            <h4 class="card-title">Veggie Pad Thai</h4>
+                            <p class="card-text ptext ">A vegetarian version of the classic Thai noodle dish, Pad Thai.</p>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#veggiePadThaiModal">Recipe</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3 mt-2 mb-3">
+                    <div class="card" style="height: 100%;">
+                        <img class="card-img-top" src="images/food26.jpeg" alt="Cucumber Salad">
+                        <div class="card-body">
+                            <h4 class="card-title">Cucumber Salad</h4>
+                            <p class="card-text ptext ">A light and refreshing salad made with cucumbers, onions, and a tangy dressing.</p>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cucumberSaladModal">Recipe</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3 mt-2 mb-3">
+                    <div class="card" style="height: 100%;">
+                        <img class="card-img-top" src="images/food27.jpeg" alt="Keto Avocado Coleslaw">
+                        <div class="card-body">
+                            <h4 class="card-title">Keto Avocado Coleslaw</h4>
+                            <p class="card-text">A low-carb coleslaw made with avocado instead of mayo.</p>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ketoAvocadoColeslawModal">Recipe</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Vegan Food Section -->
+        <div class="container d-block mt-5 vtype " id="vegan-food">
+            <div class="row gx-md-3 gx-lg-4">
+                <div class="text-center bg-subtle text-white mt-2 mb-5" style="font-size:2.0rem;">
+                    Vegan Food
+                </div>
+                <div class="col-md-4 col-lg-3 mb-3">
+                    <div class="card" style="height: 100%;">
+                        <img class="card-img-top" src="images/food10.jpeg" alt="Vegan Banana Bread">
+                        <div class="card-body">
+                            <h5 class="card-title">Vegan Banana Bread</h5>
+                            <p class="card-text">Delicious and moist banana bread made without any animal products.</p>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#veganBananaBreadModal">Recipe</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3 mb-3">
+                    <div class="card" style="height: 100%;">
+                        <img class="card-img-top" src="images/food11.jpeg" alt="Vegan Chickpea Salad">
+                        <div class="card-body">
+                            <h5 class="card-title">Vegan Chickpea Salad</h5>
+                            <p class="card-text">A refreshing salad made with chickpeas, tomatoes, cucumbers, and a tangy dressing.</p>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#veganChickpeaSaladModal">Recipe</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3 mb-3">
+                    <div class="card" style="height: 100%;">
+                        <img class="card-img-top" src="images/food12.jpeg" alt="Vegan Lentil Soup">
+                        <div class="card-body">
+                            <h5 class="card-title">Vegan Lentil Soup</h5>
+                            <p class="card-text">A hearty and nutritious soup made with lentils, vegetables, and spices.</p>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#veganLentilSoupModal">Recipe</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3 mb-3">
+                    <div class="card" style="height: 100%;">
+                        <img class="card-img-top" src="images/food28.jpeg" alt="Legumes">
+                        <div class="card-body">
+                            <h5 class="card-title">Legumes</h5>
+                            <p class="card-text">Various legumes such as beans, peas, and lentils, rich in protein and fiber.</p>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#legumesModal">Recipe</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3 mt-2 mb-3">
+                    <div class="card" style="height: 100%;">
+                        <img class="card-img-top" src="images/food29.jpeg" alt="Vegan Thanksgiving Lentil Stromboli">
+                        <div class="card-body">
+                            <h5 class="card-title">Vegan Thanksgiving Lentil Stromboli</h5>
+                            <p class="card-text">A festive dish made with lentils and vegetables, perfect for Thanksgiving.</p>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#veganThanksgivingLentilStromboliModal">Recipe</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3 mt-2 mb-3">
+                    <div class="card" style="height: 100%;">
+                        <img class="card-img-top" src="images/food30.jpeg" alt="Tofu">
+                        <div class="card-body">
+                            <h5 class="card-title">Tofu</h5>
+                            <p class="card-text">Soybean-based protein, versatile and used in various vegan dishes.</p>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tofuModal">Recipe</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3 mt-2 mb-3">
+                    <div class="card" style="height: 100%;">
+                        <img class="card-img-top" src="images/food31.jpeg" alt="Roasted Poblano Vegan Enchiladas">
+                        <div class="card-body">
+                            <h5 class="card-title">Roasted Poblano Vegan Enchiladas</h5>
+                            <p class="card-text">Enchiladas filled with roasted poblano peppers and other vegan ingredients.</p>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#roastedPoblanoVeganEnchiladasModal">Recipe</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3 mt-2 mb-3">
+                    <div class="card" style="height: 100%;">
+                        <img class="card-img-top" src="images/food32.jpeg" alt="Vegan Chipotle Lentil Rolled Tacos">
+                        <div class="card-body">
+                            <h5 class="card-title">Vegan Chipotle Lentil Rolled Tacos</h5>
+                            <p class="card-text">Tacos filled with spicy chipotle-seasoned lentils, rolled and baked until crispy.</p>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#veganChipotleLentilRolledTacosModal">Recipe</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal for Paneer Tikka -->
+        <div class="modal fade" id="paneerTikkaModal">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="paneerTikkaModalLabel">Paneer Tikka Recipe</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Ingredients:</p>
+                        <ul>
+                            <li>200 grams paneer, cubed</li>
+                            <li>1/2 cup yogurt</li>
+                            <li>1 tablespoon ginger-garlic paste</li>
+                            <li>1 teaspoon turmeric powder</li>
+                            <li>1 teaspoon red chili powder</li>
+                            <li>1 teaspoon garam masala</li>
+                            <li>1 tablespoon lemon juice</li>
+                            <li>Salt to taste</li>
+                            <li>2 tablespoons oil</li>
+                            <li>Skewers</li>
+                        </ul>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal for Samosa -->
+        <div class="modal fade" id="samosaModal" tabindex="-1" >
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="samosaModalLabel">Samosa Recipe</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Ingredients:</p>
+                        <ul>
+                            <li>Potatoes</li>
+                            <li>Peas</li>
+                            <li>Spices (cumin, coriander, turmeric, garam masala, etc.)</li>
+                            <li>Flour</li>
+                            <li>Water</li>
+                            <li>Oil</li>
+                        </ul>
+                        <p>Instructions:</p>
+                        <ol>
+                            <li>Boil and mash the potatoes.</li>
+                            <li>Sauté peas with spices.</li>
+                            <li>Mix mashed potatoes and peas.</li>
+                            <li>Make a dough with flour and water.</li>
+                            <li>Roll out dough, fill with potato mixture, and seal.</li>
+                            <li>Fry until golden brown.</li>
+                        </ol>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal for Masala Dosa -->
+        <div class="modal fade" id="masalaDosaModal">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="masalaDosaModalLabel">Masala Dosa Recipe</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Ingredients:</p>
+                        <ul>
+                            <li>Idli rice</li>
+                            <li>Urad dal</li>
+                            <li>Potatoes</li>
+                            <li>Onions</li>
+                            <li>Spices (mustard seeds, cumin seeds, turmeric, etc.)</li>
+                            <li>Oil</li>
+                            <li>Ghee</li>
+                            <li>Chutney and sambar for serving</li>
+                        </ul>
+                        <p>Instructions:</p>
+                        <ol>
+                            <li>Soak rice and dal, grind into batter.</li>
+                            <li>Ferment batter overnight.</li>
+                            <li>Sauté onions, spices, and mashed potatoes for filling.</li>
+                            <li>Make dosa on hot griddle.</li>
+                            <li>Place filling, fold dosa, and serve with chutney and sambar.</li>
+                        </ol>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal" id="baiganBharthaModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Baingan Bharta</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h6>Ingredients:</h6>
+                        <ul>
+                            <li>2 large eggplants</li>
+                            <li>2 onions, finely chopped</li>
+                            <li>2 tomatoes, chopped</li>
+                            <li>2 green chilies, chopped</li>
+                            <li>1/2 cup cilantro, chopped</li>
+                            <li>1 tsp turmeric powder</li>
+                            <li>1 tsp red chili powder</li>
+                            <li>Salt to taste</li>
+                            <li>2 tbsp oil</li>
+                        </ul>
+                        <h6>Instructions:</h6>
+                        <ol>
+                            <li>Roast the eggplants on an open flame until the skin is charred and the flesh is soft.</li>
+                            <li>Peel the skin off the eggplants and mash the flesh.</li>
+                            <li>Heat oil in a pan, add onions and green chilies, and sauté until onions are golden brown.</li>
+                            <li>Add tomatoes, turmeric powder, red chili powder, and salt. Cook until tomatoes are soft.</li>
+                            <li>Add the mashed eggplant and mix well. Cook for a few minutes.</li>
+                            <li>Garnish with cilantro and serve hot.</li>
+                        </ol>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal" id="paniPuriModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Pani Puri</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h6>Ingredients:</h6>
+                        <ul>
+                            <li>20 puris</li>
+                            <li>1 cup tamarind pulp</li>
+                            <li>1/2 cup mint leaves</li>
+                            <li>1/2 cup coriander leaves</li>
+                            <li>2 green chilies</li>
+                            <li>1/2 inch ginger</li>
+                            <li>1 tsp cumin powder</li>
+                            <li>1 tsp chaat masala</li>
+                            <li>1/2 tsp black salt</li>
+                            <li>2 cups water</li>
+                        </ul>
+                        <h6>Instructions:</h6>
+                        <ol>
+                            <li>Blend mint leaves, coriander leaves, green chilies, ginger, cumin powder, and black salt with water to make a smooth paste.</li>
+                            <li>Mix tamarind pulp, chaat masala, and water to make sweet and tangy water.</li>
+                            <li>Make a hole in the puris and fill them with a mixture of boiled potatoes, chickpeas, and tamarind chutney.</li>
+                            <li>Dip the filled puris in the mint-coriander water and serve immediately.</li>
+                        </ol>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal" id="choleBhatureModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Chole Bhature</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h6>Ingredients:</h6>
+                        <ul>
+                            <li>1 cup chickpeas</li>
+                            <li>2 onions, finely chopped</li>
+                            <li>2 tomatoes, pureed</li>
+                            <li>2 green chilies, chopped</li>
+                            <li>1/2 inch ginger, grated</li>
+                            <li>1 tsp cumin seeds</li>
+                            <li>1 tsp turmeric powder</li>
+                            <li>1 tsp red chili powder</li>
+                            <li>1 tsp garam masala</li>
+                            <li>Salt to taste</li>
+                            <li>2 tbsp oil</li>
+                        </ul>
+                        <h6>Instructions:</h6>
+                        <ol>
+                            <li>Soak chickpeas overnight and pressure cook until soft.</li>
+                            <li>Heat oil in a pan, add cumin seeds, onions, green chilies, and ginger. Sauté until onions are golden brown.</li>
+                            <li>Add tomato puree, turmeric powder, red chili powder, garam masala, and salt. Cook until oil separates.</li>
+                            <li>Add cooked chickpeas and simmer for 10 minutes.</li>
+                            <li>For bhature, mix flour, yogurt, salt, and water to make a soft dough. Let it rest for an hour.</li>
+                            <li>Roll out the dough into small discs and deep fry until golden brown.</li>
+                        </ol>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal" id="gulabJamunModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Gulab Jamun</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h6>Ingredients:</h6>
+                        <ul>
+                            <li>1 cup milk powder</li>
+                            <li>1/4 cup all-purpose flour</li>
+                            <li>1/4 tsp baking soda</li>
+                            <li>2 tbsp ghee</li>
+                            <li>Milk, as required</li>
+                            <li>Oil for frying</li>
+                            <li>For sugar syrup:</li>
+                            <li>1 cup sugar</li>
+                            <li>1 cup water</li>
+                            <li>1/2 tsp cardamom powder</li>
+                            <li>1 tsp rose water</li>
+                        </ul>
+                        <h6>Instructions:</h6>
+                        <ol>
+                            <li>Mix milk powder, flour, and baking soda. Add ghee and mix well.</li>
+                            <li>Add milk gradually to make a soft dough.</li>
+                            <li>Divide the dough into small portions and roll them into smooth balls.</li>
+                            <li>Heat oil in a pan and fry the balls on low heat until golden brown.</li>
+                            <li>Prepare sugar syrup by boiling sugar and water until it reaches a one-string consistency.</li>
+                            <li>Add cardamom powder and rose water to the syrup.</li>
+                            <li>Soak the fried balls in the syrup for a few hours before serving.</li>
+                        </ol>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal" id="rajmaChawalModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Rajma Chawal</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h6>Ingredients:</h6>
+                        <ul>
+                            <li>1 cup kidney beans (rajma)</li>
+                            <li>2 onions, finely chopped</li>
+                            <li>2 tomatoes, pureed</li>
+                            <li>2 green chilies, chopped</li>
+                            <li>1/2 inch ginger, grated</li>
+                            <li>1 tsp cumin seeds</li>
+                            <li>1 tsp turmeric powder</li>
+                            <li>1 tsp red chili powder</li>
+                            <li>1 tsp garam masala</li>
+                            <li>Salt to taste</li>
+                            <li>2 tbsp oil</li>
+                        </ul>
+                        <h6>Instructions:</h6>
+                        <ol>
+                            <li>Soak kidney beans overnight and pressure cook until soft.</li>
+                            <li>Heat oil in a pan, add cumin seeds, onions, green chilies, and ginger. Sauté until onions are golden brown.</li>
+                            <li>Add tomato puree, turmeric powder, red chili powder, garam masala, and salt. Cook until oil separates.</li>
+                            <li>Add cooked kidney beans and simmer for 10 minutes.</li>
+                            <li>Serve hot with steamed rice.</li>
+                        </ol>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Modal for Sushi -->
+        <div class="modal fade" id="sushiModal" >
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="sushiModalLabel">Sushi Recipe</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Ingredients:</p>
+                        <ul>
+                            <li>Sushi rice</li>
+                            <li>Nori seaweed</li>
+                            <li>Fillings (fish, vegetables, etc.)</li>
+                            <li>Rice vinegar</li>
+                            <li>Soy sauce</li>
+                            <li>Wasabi</li>
+                            <li>Pickled ginger</li>
+                        </ul>
+                        <p>Instructions:</p>
+                        <ol>
+                            <li>Cook sushi rice, season with rice vinegar.</li>
+                            <li>Place nori on bamboo mat, spread rice, add fillings.</li>
+                            <li>Roll tightly, cut into pieces.</li>
+                            <li>Serve with soy sauce, wasabi, and pickled ginger.</li>
+                        </ol>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal for Pasta -->
+        <div class="modal fade" id="pastaModal">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="pastaModalLabel">Pasta Recipe</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Ingredients:</p>
+                        <ul>
+                            <li>Pasta</li>
+                            <li>Tomatoes</li>
+                            <li>Garlic</li>
+                            <li>Onions</li>
+                            <li>Herbs (basil, oregano, etc.)</li>
+                            <li>Olives</li>
+                            <li>Cheese</li>
+                            <li>Olive oil</li>
+                        </ul>
+                        <p>Instructions:</p>
+                        <ol>
+                            <li>Cook pasta according to package instructions.</li>
+                            <li>Sauté garlic and onions in olive oil.</li>
+                            <li>Add chopped tomatoes, herbs, and olives, cook until tomatoes break down.</li>
+                            <li>Toss cooked pasta with sauce, top with cheese.</li>
+                        </ol>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal for Pizza -->
+        <div class="modal fade" id="pizzaModal">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="pizzaModalLabel">Pizza Recipe</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Ingredients:</p>
+                        <ul>
+                            <li>Pizza dough</li>
+                            <li>Tomato sauce</li>
+                            <li>Cheese</li>
+                            <li>Pepperoni (optional)</li>
+                            <li>Vegetables (mushrooms, bell peppers, etc.)</li>
+                            <li>Herbs (oregano, basil, etc.)</li>
+                            <li>Olive oil</li>
+                        </ul>
+                        <p>Instructions:</p>
+                        <ol>
+                            <li>Roll out pizza dough, spread tomato sauce.</li>
+                            <li>Add cheese, toppings, and herbs.</li>
+                            <li>Bake in a preheated oven until crust is golden and cheese is melted.</li>
+                            <li>Drizzle with olive oil before serving.</li>
+                        </ol>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal for Burger -->
+        <div class="modal fade" id="burgerModal" tabindex="-1" aria-labelledby="burgerModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="burgerModalLabel">Burger Recipe</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Ingredients:</p>
+                        <ul>
+                            <li>1 lb (450g) ground beef</li>
+                            <li>1/2 onion, finely chopped</li>
+                            <li>1 egg</li>
+                            <li>1/4 cup bread crumbs</li>
+                            <li>1/4 cup milk</li>
+                            <li>1/2 teaspoon salt</li>
+                            <li>1/2 teaspoon pepper</li>
+                            <li>4 hamburger buns</li>
+                            <li>Lettuce, tomato, onion, pickles (optional, for toppings)</li>
+                            <li>Condiments of your choice (ketchup, mustard, mayo, etc.)</li>
+                        </ul>
+                        <p>Instructions:</p>
+                        <ol>
+                            <li>In a large bowl, combine ground beef, onion, egg, bread crumbs, milk, salt, and pepper. Mix until well combined.</li>
+                            <li>Divide the mixture into 4 equal parts and form into patties.</li>
+                            <li>Preheat a grill or skillet over medium-high heat. Cook the patties for 4-5 minutes per side, or until cooked to your desired level of doneness.</li>
+                            <li>Toast the hamburger buns on the grill or in a toaster oven.</li>
+                            <li>Assemble the burgers with the patties on the bottom bun, topped with lettuce, tomato, onion, pickles, and condiments of your choice. Top with the other half of the bun and serve.</li>
+                        </ol>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal for Risotto -->
+        <div class="modal fade" id="risottoModal" tabindex="-1" aria-labelledby="risottoModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="risottoModalLabel">Risotto Recipe</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Ingredients:</p>
+                        <ul>
+                            <li>1 1/2 cups Arborio rice</li>
+                            <li>4 cups chicken or vegetable broth</li>
+                            <li>1/2 cup dry white wine</li>
+                            <li>1 onion, finely chopped</li>
+                            <li>2 tablespoons olive oil</li>
+                            <li>1/2 cup grated Parmesan cheese</li>
+                            <li>Salt and pepper to taste</li>
+                            <li>2 tablespoons butter</li>
+                            <li>Optional: mushrooms, peas, or other vegetables</li>
+                        </ul>
+                        <p>Instructions:</p>
+                        <ol>
+                            <li>In a saucepan, heat the broth over low heat.</li>
+                            <li>In a separate large skillet, heat the olive oil over medium heat. Add the onion and cook until translucent.</li>
+                            <li>Add the rice to the skillet and stir to coat with the oil. Cook for 1-2 minutes.</li>
+                            <li>Gradually add the wine to the skillet, stirring constantly, until the liquid is absorbed.</li>
+                            <li>Begin adding the warm broth to the skillet, one ladleful at a time, stirring constantly and allowing each addition to be absorbed before adding the next.</li>
+                            <li>Continue adding broth and stirring until the rice is creamy and cooked to al dente, about 20-25 minutes.</li>
+                            <li>Remove from heat and stir in the Parmesan cheese, butter, salt, and pepper.</li>
+                            <li>Serve hot, optionally topped with additional Parmesan cheese.</li>
+                        </ol>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal for Croissant -->
+        <div class="modal fade" id="croissantModal" tabindex="-1" aria-labelledby="croissantModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="croissantModalLabel">Croissant Recipe</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Ingredients:</p>
+                        <ul>
+                            <li>2 1/4 teaspoons (1 packet) active dry yeast</li>
+                            <li>1/2 cup (120ml) warm water (110°F/45°C)</li>
+                            <li>3/4 cup (180ml) warm milk (110°F/45°C)</li>
+                            <li>1/4 cup (50g) granulated sugar</li>
+                            <li>1 teaspoon salt</li>
+                            <li>4 cups (500g) all-purpose flour, plus more for dusting</li>
+                            <li>1 cup (2 sticks or 230g) unsalted butter, cold</li>
+                        </ul>
+                        <p>Instructions:</p>
+                        <ol>
+                            <li>In a small bowl, dissolve yeast in warm water and let stand until foamy, about 5 minutes.</li>
+                            <li>In a large bowl, combine warm milk, sugar, and salt. Stir in the yeast mixture. Gradually mix in flour until dough holds together.</li>
+                            <li>Turn dough onto a lightly floured surface and knead until smooth and elastic, about 8 minutes. Place in a greased bowl, turning once to grease the top. Cover and let rise in a warm place until doubled, about 1 hour.</li>
+                            <li>Punch dough down, cover, and refrigerate for 8 hours or overnight.</li>
+                            <li>Roll out dough into a 12-inch square. Cut butter into 1/2-inch slices and arrange over dough. Fold dough over butter and seal edges. Roll out dough into a 20x10-inch rectangle. Fold into thirds, starting with a short side. Cover and refrigerate for 30 minutes.</li>
+                            <li>Repeat rolling and folding two more times. Roll out dough to 1/4-inch thickness. Cut into triangles and roll up, starting from the wide end. Place on greased baking sheets and let rise until doubled, about 1 hour.</li>
+                            <li>Preheat oven to 400°F (200°C). Bake croissants in preheated oven until golden brown, about 15-20 minutes. Cool on wire racks.</li>
+                        </ol>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal for Cheesecake -->
+        <div class="modal fade" id="cheesecakeModal" tabindex="-1" aria-labelledby="cheesecakeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="cheesecakeModalLabel">Cheesecake Recipe</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Ingredients:</p>
+                        <ul>
+                            <li>1 1/2 cups (150g) graham cracker crumbs</li>
+                            <li>1/4 cup (50g) granulated sugar</li>
+                            <li>1/2 cup (115g) unsalted butter, melted</li>
+                            <li>24 oz (680g) cream cheese, softened</li>
+                            <li>1 cup (200g) granulated sugar</li>
+                            <li>1 cup (240ml) sour cream</li>
+                            <li>1 teaspoon vanilla extract</li>
+                            <li>4 large eggs</li>
+                        </ul>
+                        <p>Instructions:</p>
+                        <ol>
+                            <li>Preheat oven to 325°F (160°C). Grease a 9-inch springform pan.</li>
+                            <li>In a medium bowl, combine graham cracker crumbs, sugar, and melted butter. Press mixture into the bottom of the prepared pan.</li>
+                            <li>In a large bowl, beat cream cheese and sugar until smooth. Add sour cream and vanilla extract, and beat until combined. Add eggs one at a time, beating well after each addition.</li>
+                            <li>Pour cream cheese mixture over crust in the springform pan. Smooth the top with a spatula.</li>
+                            <li>Bake in preheated oven for 55-60 minutes, or until the center is almost set. Turn off the oven and let cheesecake cool in the oven for 1 hour.</li>
+                            <li>Remove cheesecake from oven and let cool completely. Refrigerate for at least 4 hours, or overnight, before serving.</li>
+                        </ol>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal for Crispy Calamari Rings -->
+        <div class="modal fade" id="calamariModal" tabindex="-1" aria-labelledby="crispyCalamariModal" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="calamariModal">Crispy Calamari Rings Recipe</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Ingredients:</p>
+                        <ul>
+                            <li>1 lb (450g) calamari rings</li>
+                            <li>1 cup buttermilk</li>
+                            <li>1 cup all-purpose flour</li>
+                            <li>1 teaspoon salt</li>
+                            <li>1 teaspoon pepper</li>
+                            <li>1/2 teaspoon paprika</li>
+                            <li>Oil for frying</li>
+                        </ul>
+                        <p>Instructions:</p>
+                        <ol>
+                            <li>Place the calamari rings in a bowl and pour the buttermilk over them. Let them soak for 30 minutes.</li>
+                            <li>In a separate bowl, combine the flour, salt, pepper, and paprika.</li>
+                            <li>Heat the oil in a large pot or deep fryer to 350°F (175°C).</li>
+                            <li>Remove the calamari rings from the buttermilk and dredge them in the flour mixture, shaking off any excess.</li>
+                            <li>Fry the calamari rings in batches for 2-3 minutes, or until golden brown and crispy.</li>
+                            <li>Remove the calamari rings from the oil and place them on a paper towel-lined plate to drain excess oil.</li>
+                            <li>Serve the crispy calamari rings hot with your favorite dipping sauce.</li>
+                        </ol>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Modal for Salad -->
+        <div class="modal fade" id="saladModal">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="saladModalLabel">Salad Recipe</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Ingredients:</p>
+                        <ul>
+                            <li>Greens (lettuce, spinach, etc.)</li>
+                            <li>Tomatoes</li>
+                            <li>Cucumbers</li>
+                            <li>Onions</li>
+                            <li>Olives</li>
+                            <li>Feta cheese</li>
+                            <li>Olive oil</li>
+                            <li>Herbs (oregano, basil, etc.)</li>
+                            <li>Red wine vinegar</li>
+                        </ul>
+                        <p>Instructions:</p>
+                        <ol>
+                            <li>Chop vegetables and cheese.</li>
+                            <li>Toss with greens, olives, and herbs.</li>
+                            <li>Dress with olive oil and vinegar.</li>
+                        </ol>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal for Smoothie -->
+        <div class="modal fade" id="smoothieModal">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="smoothieModalLabel">Smoothie Recipe</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Ingredients:</p>
+                        <ul>
+                            <li>Spinach</li>
+                            <li>Banana</li>
+                            <li>Blueberries</li>
+                            <li>Almond milk</li>
+                            <li>Chia seeds</li>
+                            <li>Protein powder (optional)</li>
+                        </ul>
+                        <p>Instructions:</p>
+                        <ol>
+                            <li>Blend all ingredients until smooth.</li>
+                            <li>Enjoy immediately.</li>
+                        </ol>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal for Gazpacho -->
+        <div class="modal fade" id="gazpachoModal">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="gazpachoModalLabel">Gazpacho Recipe</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Ingredients:</p>
+                        <ul>
+                            <li>Tomatoes</li>
+                            <li>Cucumbers</li>
+                            <li>Red bell peppers</li>
+                            <li>Onions</li>
+                            <li>Garlic</li>
+                            <li>Bread</li>
+                            <li>Olive oil</li>
+                            <li>Red wine vinegar</li>
+                            <li>Herbs (parsley, basil, etc.)</li>
+                        </ul>
+                        <p>Instructions:</p>
+                        <ol>
+                            <li>Blend all ingredients until smooth.</li>
+                            <li>Chill before serving.</li>
+                        </ol>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <!-- Modal for Chia Seed Pudding -->
+        <div class="modal fade" id="chiaSeedPuddingModal" tabindex="-1" aria-labelledby="chiaSeedPuddingModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="chiaSeedPuddingModal">Chia Seed Pudding Recipe</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Ingredients:</p>
+                        <ul>
+                            <li>1/4 cup chia seeds</li>
+                            <li>1 cup almond milk (or any milk of choice)</li>
+                            <li>1 tablespoon maple syrup (or sweetener of choice)</li>
+                            <li>1/2 teaspoon vanilla extract</li>
+                        </ul>
+                        <p>Instructions:</p>
+                        <ol>
+                            <li>In a bowl, mix chia seeds, almond milk, maple syrup, and vanilla extract.</li>
+                            <li>Stir well to combine, ensuring there are no clumps of chia seeds.</li>
+                            <li>Cover the bowl and refrigerate for at least 2 hours or overnight.</li>
+                            <li>Stir the mixture again before serving. You can add toppings like fruits, nuts, or granola if desired.</li>
+                        </ol>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal for Rocket Salad With Avocado, Blue Cheese And Pecans -->
+        <div class="modal" id="rocketSaladModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h5 class="modal-title">Rocket Salad With Avocado, Blue Cheese And Pecans</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <!-- Modal Body -->
+                    <div class="modal-body">
+                        <h6>Ingredients:</h6>
+                        <ul>
+                            <li>4 cups rocket (arugula)</li>
+                            <li>1 large avocado, sliced</li>
+                            <li>1/2 cup blue cheese, crumbled</li>
+                            <li>1/2 cup pecans, toasted</li>
+                            <li>1/4 cup olive oil</li>
+                            <li>2 tablespoons balsamic vinegar</li>
+                            <li>Salt and pepper to taste</li>
+                        </ul>
+                        <h6>Instructions:</h6>
+                        <ol>
+                            <li>In a large bowl, combine the rocket, avocado slices, blue cheese, and toasted pecans.</li>
+                            <li>In a small bowl, whisk together the olive oil, balsamic vinegar, salt, and pepper.</li>
+                            <li>Drizzle the dressing over the salad and toss gently to combine.</li>
+                            <li>Serve immediately.</li>
+                        </ol>
+                    </div>
+                    <!-- Modal Footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            <!-- Modal for Cucumber Salad -->
+        <div class="modal fade" id="cucumberSaladModal" tabindex="-1" aria-labelledby="cucumberSaladModal" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="cucumberSaladModal">Cucumber Salad Recipe</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Ingredients:</p>
+                        <ul>
+                            <li>2 cucumbers, thinly sliced</li>
+                            <li>1/4 cup red onion, thinly sliced</li>
+                            <li>1/4 cup fresh dill, chopped</li>
+                            <li>2 tablespoons white vinegar</li>
+                            <li>1 tablespoon olive oil</li>
+                            <li>Salt and pepper to taste</li>
+                        </ul>
+                        <p>Instructions:</p>
+                        <ol>
+                            <li>In a large bowl, combine the cucumbers, red onion, and dill.</li>
+                            <li>In a small bowl, whisk together the vinegar, olive oil, salt, and pepper.</li>
+                            <li>Pour the dressing over the cucumber mixture and toss to combine.</li>
+                            <li>Refrigerate for at least 30 minutes before serving to allow the flavors to meld.</li>
+                            <li>Serve chilled.</li>
+                        </ol>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+           <!-- Modal for Keto Avocado Coleslaw -->
+        <div class="modal fade" id="ketoAvocadoColeslawModal" tabindex="-1" aria-labelledby="ketoAvocadoColeslawModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="ketoAvocadoColeslawModalLabel">Keto Avocado Coleslaw Recipe</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Ingredients:</p>
+                        <ul>
+                            <li>1 avocado, ripe and mashed</li>
+                            <li>1/4 cup mayonnaise</li>
+                            <li>1 tablespoon apple cider vinegar</li>
+                            <li>1/2 teaspoon celery seed</li>
+                            <li>Salt and pepper to taste</li>
+                            <li>4 cups shredded cabbage or coleslaw mix</li>
+                        </ul>
+                        <p>Instructions:</p>
+                        <ol>
+                            <li>In a large bowl, mix together the mashed avocado, mayonnaise, apple cider vinegar, celery seed, salt, and pepper.</li>
+                            <li>Add the shredded cabbage or coleslaw mix to the bowl and toss until well coated.</li>
+                            <li>Adjust seasoning to taste, adding more salt, pepper, or vinegar if desired.</li>
+                            <li>Serve immediately or refrigerate for later. The coleslaw can be stored in the refrigerator for up to 2 days.</li>
+                        </ol>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            <!-- Modal for Veggie Pad Thai -->
+            <div class="modal fade" id="veggiePadThaiModal" tabindex="-1" aria-labelledby="veggiePadThaiModal" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="veggiePadThaiModal">Veggie Pad Thai Recipe</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Ingredients:</p>
+                            <ul>
+                                <li>200g rice noodles</li>
+                                <li>2 tablespoons vegetable oil</li>
+                                <li>2 garlic cloves, minced</li>
+                                <li>1 red bell pepper, thinly sliced</li>
+                                <li>1 carrot, julienned</li>
+                                <li>1 cup bean sprouts</li>
+                                <li>3 green onions, chopped</li>
+                                <li>1/4 cup peanuts, chopped</li>
+                                <li>Lime wedges, for serving</li>
+                                <li>For the sauce:</li>
+                                <li>3 tablespoons soy sauce</li>
+                                <li>2 tablespoons brown sugar</li>
+                                <li>1 tablespoon rice vinegar</li>
+                                <li>1 tablespoon lime juice</li>
+                                <li>1 tablespoon tamarind paste</li>
+                                <li>1 teaspoon sriracha sauce (optional)</li>
+                            </ul>
+                            <p>Instructions:</p>
+                            <ol>
+                                <li>Cook rice noodles according to package instructions. Drain and set aside.</li>
+                                <li>In a small bowl, whisk together soy sauce, brown sugar, rice vinegar, lime juice, tamarind paste, and sriracha sauce to make the sauce.</li>
+                                <li>Heat vegetable oil in a large pan over medium-high heat. Add minced garlic and cook for about 30 seconds.</li>
+                                <li>Add sliced bell pepper and julienned carrot to the pan. Cook for about 3-4 minutes until vegetables are tender-crisp.</li>
+                                <li>Add the cooked rice noodles, bean sprouts, chopped green onions, and the prepared sauce to the pan. Toss everything together and cook for another 2-3 minutes.</li>
+                                <li>Serve Veggie Pad Thai hot, garnished with chopped peanuts and lime wedges.</li>
+                            </ol>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        <!-- Modal for Vegan Lentil Soup -->
+        <div class="modal fade" id="veganLentilSoupModal" tabindex="-1" aria-labelledby="veganLentilSoupModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="veganLentilSoupModalLabel">Vegan Lentil Soup Recipe</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Ingredients:</p>
+                        <ul>
+                            <li>1 cup dried lentils</li>
+                            <li>4 cups vegetable broth</li>
+                            <li>1 onion, chopped</li>
+                            <li>2 carrots, chopped</li>
+                            <li>2 celery stalks, chopped</li>
+                            <li>2 cloves garlic, minced</li>
+                            <li>1 can (14 oz) diced tomatoes</li>
+                            <li>1 teaspoon cumin</li>
+                            <li>1 teaspoon paprika</li>
+                            <li>Salt and pepper, to taste</li>
+                            <li>Fresh parsley, for garnish</li>
+                        </ul>
+                        <p>Instructions:</p>
+                        <ol>
+                            <li>In a large pot, combine lentils, vegetable broth, onion, carrots, celery, and garlic.</li>
+                            <li>Bring to a boil, then reduce heat and simmer for about 20-25 minutes, or until lentils are tender.</li>
+                            <li>Stir in diced tomatoes, cumin, paprika, salt, and pepper.</li>
+                            <li>Simmer for an additional 10 minutes.</li>
+                            <li>Serve hot, garnished with fresh parsley.</li>
+                        </ol>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal for Vegan Chickpea Salad -->
+        <div class="modal fade" id="veganChickpeaSaladModal" tabindex="-1" aria-labelledby="veganChickpeaSaladModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="veganChickpeaSaladModal">Vegan Chickpea Salad Recipe</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Ingredients:</p>
+                        <ul>
+                            <li>1 can (15 oz) chickpeas, drained and rinsed</li>
+                            <li>1 cucumber, diced</li>
+                            <li>1 bell pepper, diced</li>
+                            <li>1/2 red onion, diced</li>
+                            <li>1/4 cup fresh parsley, chopped</li>
+                            <li>Juice of 1 lemon</li>
+                            <li>2 tablespoons olive oil</li>
+                            <li>1 teaspoon cumin</li>
+                            <li>Salt and pepper, to taste</li>
+                        </ul>
+                        <p>Instructions:</p>
+                        <ol>
+                            <li>In a large bowl, combine chickpeas, cucumber, bell pepper, red onion, and parsley.</li>
+                            <li>In a small bowl, whisk together lemon juice, olive oil, cumin, salt, and pepper.</li>
+                            <li>Pour dressing over salad and toss to combine.</li>
+                            <li>Serve chilled.</li>
+                        </ol>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal for Vegan Banana Bread -->
+        <div class="modal fade" id="veganBananaBreadModal" tabindex="-1" aria-labelledby="veganBananaBreadModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="veganBananaBreadModalLabel">Vegan Banana Bread Recipe</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Ingredients:</p>
+                        <ul>
+                            <li>2 ripe bananas, mashed</li>
+                            <li>1/3 cup coconut oil, melted</li>
+                            <li>1/2 cup maple syrup</li>
+                            <li>1/2 cup almond milk</li>
+                            <li>1 teaspoon vanilla extract</li>
+                            <li>2 cups flour</li>
+                            <li>1 teaspoon baking soda</li>
+                            <li>1 teaspoon cinnamon</li>
+                            <li>1/2 teaspoon salt</li>
+                            <li>1/2 cup chopped walnuts (optional)</li>
+                        </ul>
+                        <p>Instructions:</p>
+                        <ol>
+                            <li>Preheat oven to 350°F (175°C). Grease a 9x5-inch loaf pan.</li>
+                            <li>In a large bowl, combine mashed bananas, coconut oil, maple syrup, almond milk, and vanilla extract.</li>
+                            <li>In a separate bowl, whisk together flour, baking soda, cinnamon, and salt.</li>
+                            <li>Add dry ingredients to wet ingredients and stir until just combined. Fold in chopped walnuts, if using.</li>
+                            <li>Pour batter into prepared loaf pan and bake for 50-60 minutes, or until a toothpick inserted into the center comes out clean.</li>
+                            <li>Let cool in the pan for 10 minutes, then transfer to a wire rack to cool completely.</li>
+                        </ol>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal for Legumes -->
+        <div class="modal fade" id="legumesModal">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="legumesModalLabel">Legumes Recipe</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Ingredients:</p>
+                        <ul>
+                            <li>1 cup mixed legumes (e.g., lentils, chickpeas, black beans)</li>
+                            <li>1 onion, chopped</li>
+                            <li>2 cloves garlic, minced</li>
+                            <li>1 carrot, diced</li>
+                            <li>1 celery stalk, diced</li>
+                            <li>1 bay leaf</li>
+                            <li>4 cups vegetable broth</li>
+                            <li>Salt and pepper to taste</li>
+                            <li>2 tablespoons olive oil</li>
+                        </ul>
+                        <p>Instructions:</p>
+                        <ol>
+                            <li>Heat olive oil in a large pot over medium heat. Add onion, garlic, carrot, and celery. Cook until vegetables are soft, about 5 minutes.</li>
+                            <li>Add mixed legumes, bay leaf, and vegetable broth. Bring to a boil, then reduce heat and simmer for about 30 minutes, or until legumes are tender.</li>
+                            <li>Season with salt and pepper to taste. Serve hot.</li>
+                        </ol>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal for Vegan Thanksgiving Lentil Stromboli -->
+        <div class="modal fade" id="veganThanksgivingLentilStromboliModal">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="veganThanksgivingLentilStromboliModalLabel">Vegan Thanksgiving Lentil Stromboli Recipe</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Ingredients:</p>
+                        <ul>
+                            <li>1 cup cooked lentils</li>
+                            <li>1/2 cup chopped walnuts</li>
+                            <li>1/4 cup dried cranberries</li>
+                            <li>1/4 cup chopped sage</li>
+                            <li>1/4 cup chopped parsley</li>
+                            <li>1/4 cup chopped onion</li>
+                            <li>1/4 cup chopped celery</li>
+                            <li>1/4 cup chopped carrot</li>
+                            <li>2 cloves garlic, minced</li>
+                            <li>1 teaspoon dried thyme</li>
+                            <li>1 teaspoon dried rosemary</li>
+                            <li>Salt and pepper to taste</li>
+                            <li>1 pound pizza dough</li>
+                            <li>Olive oil, for brushing</li>
+                        </ul>
+                        <p>Instructions:</p>
+                        <ol>
+                            <li>Preheat the oven to 400°F (200°C). Line a baking sheet with parchment paper.</li>
+                            <li>In a large bowl, combine the cooked lentils, walnuts, cranberries, sage, parsley, onion, celery, carrot, garlic, thyme, rosemary, salt, and pepper.</li>
+                            <li>Roll out the pizza dough on a floured surface into a rectangle. Spread the lentil mixture evenly over the dough, leaving a border around the edges.</li>
+                            <li>Roll up the dough tightly, starting from one of the long sides. Place the stromboli seam side down on the prepared baking sheet.</li>
+                            <li>Brush the top of the stromboli with olive oil. Bake for 25-30 minutes, or until the crust is golden brown.</li>
+                            <li>Let cool slightly before slicing and serving.</li>
+                        </ol>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal for Tofu -->
+        <div class="modal fade" id="tofuModal">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="tofuModalLabel">Tofu Recipe</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Ingredients:</p>
+                        <ul>
+                            <li>1 block firm tofu</li>
+                            <li>2 tablespoons soy sauce</li>
+                            <li>1 tablespoon maple syrup</li>
+                            <li>1 teaspoon sesame oil</li>
+                            <li>1 teaspoon garlic powder</li>
+                            <li>1 teaspoon onion powder</li>
+                            <li>1/2 teaspoon smoked paprika</li>
+                            <li>1/4 teaspoon black pepper</li>
+                            <li>1 tablespoon olive oil</li>
+                        </ul>
+                        <p>Instructions:</p>
+                        <ol>
+                            <li>Press the tofu to remove excess water. Cut into cubes or slices.</li>
+                            <li>In a bowl, mix together the soy sauce, maple syrup, sesame oil, garlic powder, onion powder, smoked paprika, and black pepper.</li>
+                            <li>Add the tofu to the marinade and let it marinate for at least 30 minutes.</li>
+                            <li>Heat olive oil in a skillet over medium-high heat. Add the marinated tofu and cook until browned on all sides, about 5-7 minutes.</li>
+                            <li>Serve hot.</li>
+                        </ol>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal for Roasted Poblano Vegan Enchiladas -->
+        <div class="modal fade" id="roastedPoblanoVeganEnchiladasModal">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="roastedPoblanoVeganEnchiladasModalLabel">Roasted Poblano Vegan Enchiladas Recipe</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Ingredients:</p>
+                        <ul>
+                            <li>4 large poblano peppers</li>
+                            <li>1 tablespoon olive oil</li>
+                            <li>1 onion, chopped</li>
+                            <li>2 cloves garlic, minced</li>
+                            <li>1 can black beans, drained and rinsed</li>
+                            <li>1 can diced tomatoes, drained</li>
+                            <li>1 teaspoon ground cumin</li>
+                            <li>1 teaspoon chili powder</li>
+                            <li>Salt and pepper to taste</li>
+                            <li>8-10 corn tortillas</li>
+                            <li>1 can enchilada sauce</li>
+                            <li>1 cup vegan cheese, shredded</li>
+                            <li>Fresh cilantro, chopped (for garnish)</li>
+                        </ul>
+                        <p>Instructions:</p>
+                        <ol>
+                            <li>Preheat the oven to 400°F (200°C). Line a baking sheet with aluminum foil.</li>
+                            <li>Place poblano peppers on the baking sheet and roast in the preheated oven for 20-25 minutes, turning halfway through, until the skins are blistered and charred.</li>
+                            <li>Remove the peppers from the oven and place them in a bowl. Cover with plastic wrap and let them steam for 10 minutes.</li>
+                            <li>Peel the skins off the peppers, remove the seeds, and chop them.</li>
+                            <li>Heat olive oil in a large skillet over medium heat. Add onion and garlic and cook until softened, about 5 minutes.</li>
+                            <li>Add chopped poblanos, black beans, diced tomatoes, cumin, chili powder, salt, and pepper. Cook for another 5 minutes, then remove from heat.</li>
+                            <li>Spread a thin layer of enchilada sauce on the bottom of a baking dish.</li>
+                            <li>Fill each tortilla with a spoonful of the black bean mixture and a sprinkle of vegan cheese. Roll up and place seam side down in the baking dish.</li>
+                            <li>Pour the remaining enchilada sauce over the top of the enchiladas and sprinkle with the remaining vegan cheese.</li>
+                            <li>Bake in the preheated oven for 20-25 minutes, until the cheese is melted and bubbly.</li>
+                            <li>Serve hot, garnished with fresh cilantro.</li>
+                        </ol>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal for Vegan Chipotle Lentil Rolled Tacos -->
+        <div class="modal fade" id="veganChipotleLentilRolledTacosModal">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="veganChipotleLentilRolledTacosModalLabel">Vegan Chipotle Lentil Rolled Tacos Recipe</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Ingredients:</p>
+                        <ul>
+                            <li>1 cup cooked lentils</li>
+                            <li>1 chipotle pepper in adobo sauce, chopped</li>
+                            <li>1/2 teaspoon ground cumin</li>
+                            <li>1/2 teaspoon smoked paprika</li>
+                            <li>Salt and pepper to taste</li>
+                            <li>8-10 corn tortillas</li>
+                            <li>1/4 cup vegan sour cream</li>
+                            <li>1/4 cup chopped fresh cilantro</li>
+                            <li>1/4 cup chopped red onion</li>
+                            <li>Lime wedges, for serving</li>
+                        </ul>
+                        <p>Instructions:</p>
+                        <ol>
+                            <li>In a bowl, mix together the cooked lentils, chipotle pepper, cumin, smoked paprika, salt, and pepper.</li>
+                            <li>Warm the corn tortillas in a dry skillet over medium heat until pliable, about 30 seconds per side.</li>
+                            <li>Divide the lentil mixture among the tortillas, spreading it out in a line down the center of each tortilla.</li>
+                            <li>Roll up the tortillas and place them seam side down on a plate.</li>
+                            <li>Serve the rolled tacos topped with vegan sour cream, cilantro, red onion, and lime wedges.</li>
+                        </ol>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+          <!-- Cooking Tips and Techniques Section -->
+            <div class="container-fluid bg-light py-5 mt-5">
+                <div class="container">
+                    <h2 class="text-center mb-4">Cooking Tips and Techniques</h2>
+                    <div class="row row-cols-1 row-cols-md-3 g-4">
+                        <!-- Tip Card 1 -->
+                        <div class="col">
+                            <div class="card h-100 tip-card">
+                                <img src="images/k1.jpeg" class="card-img-top" alt="Knife Skills">
+                                <div class="card-body">
+                                    <h5 class="card-title">Knife Skills</h5>
+                                    <p class="card-text">Master the art of chopping, slicing, and dicing with these expert knife skills tips.</p>
+                                </div>
+                                <div class="glow"></div> 
+                            </div>
+                        </div>
+                        <!-- Tip Card 2 -->
+                        <div class="col">
+                            <div class="card h-100 tip-card">
+                                <img src="images/fp1.jpeg" class="card-img-top" alt="Flavor Pairing">
+                                <div class="card-body">
+                                    <h5 class="card-title">Flavor Pairing</h5>
+                                    <p class="card-text">Explore the science behind flavor pairing and create harmonious dishes that delight the senses.</p>
+                                </div>
+                                <div class="glow"></div> 
+                            </div>
+                        </div>
+                        <!-- Tip Card 3 -->
+                        <div class="col">
+                            <div class="card h-100 tip-card">
+                                <img src="images/ct.jpeg" class="card-img-top" alt="Cooking Techniques">
+                                <div class="card-body">
+                                    <h5 class="card-title">Cooking Techniques</h5>
+                                    <p class="card-text">From sautéing to braising, discover essential cooking techniques to enhance your culinary repertoire.</p>
+                                </div>
+                                <div class="glow"></div> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+           <!--Register, Inquiry, Subscription Section -->
+    <div class="custom-section mt-5 mb-5">
+        <div class="custom-container">
+            <div class="custom-row">
+                <div class="custom-img-container">
+                    <img src="images/d1.jpeg" alt="App Icon" class="custom-img">
+                </div>
+                <div class="custom-content">
+                    <h2 class="display-4">Discover the Best Recipes!</h2>
+                    <p class="lead">Explore a world of flavors with our recipe-sharing app. Download now and start cooking!</p>
+                        <li>🌍 Explore a diverse range of recipes from cultures around the globe.</li>
+                        <li>👩‍🍳 Create and share your own culinary masterpieces with step-by-step instructions.</li>
+                        <li>🤝 Connect with fellow foodies, share cooking tips, and be inspired by a thriving community.</li>
+                    <a href="#" class="btn btn-lg btn-download">Explore Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<footer>
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-lg-4 mt-5">
+                <h5>Menu</h5>
+                <p>Description of Menu</p>
+                <ul>
+                    <li><a href="#indfood">Indian Food</a></li>
+                    <li><a href="#contfood">Continental Food</a></li>
+                    <li><a href="#heatfreefood">Heat Free Food</a></li>
+                    <li><a href="#vegan-food">Vegan Food</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-4 mt-5">
+                <h5>Registration</h5>
+                <form>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+            <div class="col-lg-4 mt-5">
+                <h5>Contact Us</h5>
+                <ul class="list-unstyled">
+                    <li class="list-inline-item"><a href="#"><i class="fab fa-facebook"></i></a></li>
+                    <li class="list-inline-item"><a href="#"><i class="fab fa-whatsapp"></i></a></li>
+                    <li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
+                    <li><i class="fas fa-map-marker-alt"></i> Address: YummyEats, Billionaires Street,Mumbai,India</li>
+                    <li><i class="fas fa-phone"></i> Phone: +1234567890</li>
+                    <li><i class="fas fa-envelope"></i> Email: <a href="mailto:your-email@example.com">yummyeats@toogood.com</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- Copyright -->
+    <div class=" text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+        © 2024 Copyright:<br>
+        Desinged and Developed by Yug patel
+    </div>
+</footer>
+    </body>
+</html>
